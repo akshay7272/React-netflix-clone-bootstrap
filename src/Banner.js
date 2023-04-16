@@ -39,12 +39,10 @@ function Banner() {
             {movies?.title || movies?.name || movies?.original_name}
           </h1>
 
-          <a className="btn btn-outline-secondary text-white" href="#">
-            Play
-          </a>
-          <a className="btn btn-outline-secondary text-white mx-2" href="#">
+          <button className="btn btn-outline-secondary text-white">Play</button>
+          <button className="btn btn-outline-secondary text-white mx-2">
             My List
-          </a>
+          </button>
 
           <p className="lead font-weight-normal text-white py-3">
             {movies?.overview}
