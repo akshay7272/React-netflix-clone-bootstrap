@@ -30,6 +30,7 @@ function Banner() {
         fontStyle: "oblique",
         backgroundImage: `url('${base_url}${movies?.backdrop_path}')`,
         maxWidth: "100%",
+        marginTop: "-18px",
       }}
     >
       <Nav />

@@ -1,8 +1,25 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import "./App.css";
 function Nav() {
+  const [show, handleShow] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        handleShow(true);
+      } else {
+        handleShow(false);
+      }
+    });
+    return () => {
+      window.removeEventListener("scroll", { show });
+    };
+  }, []);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light  d-flex d-flex justify-content-between mx-3">
+    <nav
+      className={`navbar navbar-expand-lg w-100 position-fixed navbar-light  d-flex d-flex justify-content-between px-3 ${
+        show && "nav_black"
+      } `}
+    >
       <img
         src="https://download.logo.wine/logo/Netflix/Netflix-Logo.wine.png"
         height="auto"
