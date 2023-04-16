@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "./axios";
 import requests from "./request";
 import "./App.css";
+import Nav from "./Nav";
 
 function Banner() {
   const [movies, setMovies] = useState([]);
@@ -26,15 +27,15 @@ function Banner() {
     <header
       style={{
         backgroundSize: "cover",
-        objectFit: "contain",
         fontStyle: "oblique",
         backgroundImage: `url('${base_url}${movies?.backdrop_path}')`,
-        height: "600px",
+        maxWidth: "100%",
       }}
     >
+      <Nav />
       <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-left bg-transparent  ">
         <div className="col-md-5  banner-content">
-          <h1 className="display-4 font-weight-normal text-white my-5">
+          <h1 className="display-4 font-weight-normal text-white ">
             {movies?.title || movies?.name || movies?.original_name}
           </h1>
 
@@ -49,8 +50,8 @@ function Banner() {
             {movies?.overview}
           </p>
         </div>
-        <div className="fade_button" />
       </div>
+      <div className="fade_button" />
     </header>
   );
 }

@@ -15,8 +15,8 @@ function Row({ title, fetchUrl }) {
   }, [fetchUrl]);
 
   return (
-    <div className="row">
-      <h2 className="head-color">{title}</h2>
+    <div className="row mx-2">
+      <h2 className="head-color mx-3">{title}</h2>
 
       <div className="d-flex p-2 bd-highlight row-trend">
         {movies.map((data) => (
