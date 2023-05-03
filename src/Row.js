@@ -22,15 +22,15 @@ function Row({ title, fetchUrl }) {
     fetchData();
   }, [fetchUrl]);
 
-  const slideLeft = () => {
-    var slider = document.getElementById("sliders");
-    slider.scroll = 0;
-    slider.scrollLeft -= 700;
-  };
-  const slideRight = () => {
-    var slider = document.getElementById("sliders");
-    slider.scrollLeft += 700;
-  };
+  // const slideLeft = () => {
+  //   var slider = document.getElementById("sliders");
+  //   slider.scroll = 0;
+  //   slider.scrollLeft -= 700;
+  // };
+  // const slideRight = () => {
+  //   var slider = document.getElementById("sliders");
+  //   slider.scrollLeft += 700;
+  // };
   return (
     <div className="row mx-2">
       <h2 className="head-color mx-3">{title}</h2>
@@ -39,11 +39,11 @@ function Row({ title, fetchUrl }) {
         className=" d-flex p-2 w-full h-full  scroll whitespace-nowrap"
         ref={sliderRef}
       >
-        <VscArrowLeft
+        {/* <VscArrowLeft
           onClick={() => slideLeft()}
           size={90}
           style={{ color: "white", marginTop: "170px" }}
-        />
+        /> */}
         <div className="d-flex p-2 bd-highlight row-trend scroll" id="sliders">
           {movies.map((data) => (
             <img
@@ -57,11 +57,11 @@ function Row({ title, fetchUrl }) {
           ))}
         </div>
 
-        <VscArrowRight
+        {/* <VscArrowRight
           size={90}
           style={{ color: "white", marginTop: "170px" }}
           onClick={slideRight}
-        />
+        /> */}
       </div>
     </div>
   );
