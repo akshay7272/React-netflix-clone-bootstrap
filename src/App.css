@@ -62,3 +62,10 @@ nav {
   background-color: #111;
   /* height: 70px; */
 }
+
+/* hide left right button */
+@media (max-width:767px){
+  .arrow-buttons {
+    display: none;
+  }
+}

@@ -4,47 +4,43 @@ import { VscArrowLeft, VscArrowRight } from "react-icons/vsc";
 function Row({ title, fetchUrl }) {
   const [movies, setMovies] = useState([]);
   const base_url = "https://image.tmdb.org/t/p/original";
-  const sliderRef = useRef(null);
-  const handleScrollRight = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft += 500;
-    }
-    console.log(sliderRef.current.scrollLeft, "slider");
-  };
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
-
       setMovies(request.data.results);
-      // console.log(request.data.results);
       return request;
     }
     fetchData();
   }, [fetchUrl]);
 
-  // const slideLeft = () => {
-  //   var slider = document.getElementById("sliders");
-  //   slider.scroll = 0;
-  //   slider.scrollLeft -= 700;
-  // };
-  // const slideRight = () => {
-  //   var slider = document.getElementById("sliders");
-  //   slider.scrollLeft += 700;
-  // };
+  const slideLeft = (e) => {
+    // const slider = e.target.nextElementSibling.querySelector(".scroll");
+    // slider.scrollLeft -= 700;
+    e.target.nextElementSibling.scrollLeft -= 700;
+  };
+
+  const slideRight = (e) => {
+    // const slider = e.target.previousElementSibling.querySelector(".scroll");
+    // slider.scrollLeft += 700;
+    e.target.previousElementSibling.scrollLeft += 700;
+  };
+
   return (
     <div className="row mx-2">
       <h2 className="head-color mx-3">{title}</h2>
 
-      <div
-        className=" d-flex p-2 w-full h-full  scroll whitespace-nowrap"
-        ref={sliderRef}
-      >
-        {/* <VscArrowLeft
-          onClick={() => slideLeft()}
+      <div className="d-flex p-2 w-full h-full  whitespace-nowrap">
+        <VscArrowLeft
+          className="arrow-buttons"
+          onClick={(e) => slideLeft(e)}
           size={90}
           style={{ color: "white", marginTop: "170px" }}
-        /> */}
-        <div className="d-flex p-2 bd-highlight row-trend scroll" id="sliders">
+        />
+
+        <div
+          className="d-flex p-2 bd-highlight row-trend scroll"
+          id={`slider-${title}`}
+        >
           {movies.map((data) => (
             <img
               key={data.id}
@@ -57,11 +53,12 @@ function Row({ title, fetchUrl }) {
           ))}
         </div>
 
-        {/* <VscArrowRight
+        <VscArrowRight
+          className="arrow-buttons"
           size={90}
           style={{ color: "white", marginTop: "170px" }}
-          onClick={slideRight}
-        /> */}
+          onClick={(e) => slideRight(e)}
+        />
       </div>
     </div>
   );
