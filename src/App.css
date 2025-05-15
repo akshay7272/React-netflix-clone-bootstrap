@@ -44,7 +44,7 @@ body{
 }
 @media (min-width:768px){
   .fade_button {
-    height: 6rem;
+    height: 20rem;
     background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111 );
       
   }
